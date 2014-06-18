@@ -29,6 +29,7 @@ class Game:
         self.winner = None
         self.gameover = False
     def play_game(self):
+        self.state = "midgame"
         while not self.gameover:
             self.play_next_move()
     def play_next_move(self):
@@ -39,7 +40,7 @@ class Game:
         win = self.board.check_for_win(self.turn)
         if win:
             self.winner = self.turn
-            print(self.winner)
+            print(self.winner + " wins")
             self.gameover = True
         else:    
             if self.turn is self.p1:
