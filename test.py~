@@ -1,6 +1,0 @@
-import c4
-import players
-
-p1 = players.Beginner()
-p2 = players.Human()
-g = c4.Game(p1,p2)
