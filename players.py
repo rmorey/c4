@@ -32,15 +32,15 @@ class Beginner(c4.Player):
         else:
             opp = board.p1
         test = copy.deepcopy(board)
+        test.data = copy.copy(board.data)
         for i in range(board.shape[1]):
-            test.make_move(i,self)
+            test.make_move(i,self)         
             if test.check_for_win(self):
                 return i
-            test = copy.deepcopy(board)
+            test.data = copy.copy(board.data)
         for i in range(board.shape[1]):
             test.make_move(i,opp)
-            print(test)
             if test.check_for_win(opp):
                 return i
-            test = copy.deepcopy(board)
+            test.data = copy.copy(board.data)
         return random.choice([i for i in range(board.shape[1]) if board.data[0,i] == None])

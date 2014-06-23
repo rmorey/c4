@@ -23,8 +23,8 @@ class Game:
         self.p2 = p2
         self.board.p1 = p1
         self.board.p2 = p2
-        p1.name = "p1"
-        p2.name = "p2"
+        p1.name = " p1 "
+        p2.name = " p2 "
         self.turn = p1
         self.winner = None
         self.gameover = False
@@ -40,13 +40,17 @@ class Game:
         win = self.board.check_for_win(self.turn)
         if win:
             self.winner = self.turn
-            print(self.winner + " wins")
+            print self.winner, " wins"
             self.gameover = True
         else:    
             if self.turn is self.p1:
                 self.turn = self.p2
             else:
                 self.turn = self.p1
+        if None not in list(self.board.data.flatten()):
+            self.state = "gameover"
+            self.gameover = True
+            return 0
 
 class Board:
     """holds game state data"""
