@@ -11,6 +11,12 @@ class Player:
     def get_next_move(self,board):
         return 1
 
+class Square:
+    def __init__(self, r, c, board):
+        self.location = (r,c)
+        self.board = board
+        self.occupant = None
+
 class Game:
     """Game class"""
     def __init__(self, p1, p2):
